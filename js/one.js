@@ -97,3 +97,38 @@ if (s % 3 === 0 && s % 5 === 0) {
 } else {
     console.log("neither");
 }
+
+//3-0
+//The program should print out FOUND if the substring coDe exists in the
+// text below. If the coDe does not exist in the text, then the program
+// should print NOT FOUND.
+let longString = "JNtpAh7HQFG08rYh2Pb3HwOm83rbTomM6LnnjooGcoDeuWkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QLaEjcDGv7dVpFiMGHMaZZVDX34rZPy1EkZNZqlQU0jopLVvLyLESMh9A7gKhqoyMAbgZPpdb0CvniTJPpKYk24mLBeym8rBMW3XBmKk1xIOcJ"
+let hasCode = longString.indexOf("coDe") > -1;  //indexOf returns -1 if the string is not found
+
+if(hasCode){
+    console.log("found");  //basically we're saying if hasCode is true, console.log found
+}
+
+let longStr = "JNtpAh7HQFG08rYh2Pb3HwOm83rbTomM6LnnjooG";
+let containsYh = longStr.indexOf("Yh2") > -1;
+
+if(containsYh){
+    console.log("it's here");
+}
+
+let anotherStr = "nnjooGcoDeuWkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QL";
+let doesntCon = anotherStr.indexOf("zebra") > -1;
+
+if(doesntCon){
+    console.log("nope");  //this won't print anything, bc it's not true and we didn't give instructions on what to do it if's false
+}
+
+let oneMoreStr = "WkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QL";
+let doesntHv = oneMoreStr.indexOf("oxtails") < 1;  // less than 1 bc indexOf returns -1 if the string doesn't contain the thing
+
+if(doesntHv) {
+    console.log("your string doesn't contain this string");
+}
+
+//The indexOf() method returns the first index at which a
+// given element can be found in the array, or -1 if it is not present.
