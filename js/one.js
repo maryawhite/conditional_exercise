@@ -132,3 +132,125 @@ if(doesntHv) {
 
 //The indexOf() method returns the first index at which a
 // given element can be found in the array, or -1 if it is not present.
+
+//vowels an consonants from hackerrank
+function vowelsAndConsonants(s) {
+    const vowels = "aeiou";
+    var consonants = "";
+    for(var i = 0; i < s.length; i++){
+        if (vowels.includes(s[i])){
+            console.log(s[i]);       //it will console.log my vowels even though I only return consonants.
+        } else {
+            consonants += s[i] + '\n';
+        }
+    }
+    return consonants;
+}
+
+console.log(vowelsAndConsonants("javascript"));  //a a i j v s c r p t
+console.log(vowelsAndConsonants("maryandsarah")); //a a a a m r y s r h
+
+//from eloquent javascript
+// Define f to hold a function value
+ const f = function(a) {
+   return (a + 2);
+ };
+
+ console.log(f(2)); //4
+console.log(f(6));  //8
+console.log(f("10"));  //102 bc it concatenates not adds
+console.log(f("tree")); //tree2 bc it concatenates
+
+console.log(Math.min(2, 4) + 100);
+// → 102
+
+//from eloquent javascript
+//Write a function min that takes two arguments and returns the minimum.
+
+function min (x, y) {
+    var minimumValue = Math.min(x, y);
+    return minimumValue;
+}
+console.log(min(10, 2));     //2
+console.log(min(1000, 300)); //300
+console.log(min(1,-2));     //-2
+
+
+//from github.com/Hey-Programmers/learn-javascript/tree/master/02_functions/exercises/A_functions_exercise
+//Write a function `endsWithT` that accepts a string as an argument. The function should return a
+//boolean indicating whether or not the string ends with the character 't'.
+
+function endsWithT(input){
+    if(typeof input !== "string"){
+        return false;
+    }
+    if(input.charAt(input.length -1) === "t"){
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log("--ends with T--");
+console.log(endsWithT("smart"));   //true
+console.log(endsWithT("taco"));    //false
+console.log(endsWithT("boomerang"));   //false
+console.log(endsWithT("racket"));      //true
+console.log(endsWithT(123));           //false
+console.log(endsWithT("123"));         //false
+console.log(endsWithT("t"));           //true
+console.log(endsWithT(false));         //false
+
+
+//from HeyProgrammers
+//Write a function `average` that accepts three numbers as arguments.
+// The function should return the average of the three numbers.
+function average(a, b, c){
+    var result = (parseInt(a) + parseInt(b) + parseInt(c))/3;
+    return result;
+}
+console.log("--average of 3 numbers--");
+console.log(average(3, 10, 8));     //7
+console.log(average(10, 5, 12));    //9
+console.log(average(6, 20, 40));    //22
+console.log(average("3", 10, 8));   //7  must use parseInt or it will concatenate the string number
+console.log(average("10", "5", "12"));  //9
+console.log(average("ten", "five", "twelve"));  //NaN
+
+//from w3resource
+//Write a JavaScript function that takes in two parameters, amount and coins,
+// and output the coins that would add up to the amount.
+//
+// Sample function : amountToCoins(46, [25, 10, 5, 2, 1])
+// Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
+// Output : 25, 10, 10, 1
+function amountToCoins(amount, coins){
+    if(amount === 0){
+        return [];
+    } else {
+        if(amount >= coins[0]){
+            var left = (amount - coins[0]);
+            return [coins[0]].concat(amountToCoins(left, coins));
+        } else {
+            coins.shift();
+            return amountToCoins(amount, coins);
+        }
+    }
+}
+console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
+
+//try to rework below...
+function amountToCoinsBbb(amount){
+    var coins = [25, 10, 5, 2, 1];
+    if(amount === 0){
+        return [];
+    } else {
+        if(amount >= coins[0]){
+            var left = (amount - coins[0]);
+            return [coins[0]].concat(amountToCoinsBbb(left));
+        } else {
+            coins.shift();
+            return amountToCoinsBbb(amount);
+        }
+    }
+}
+console.log(amountToCoinsBbb(46));
