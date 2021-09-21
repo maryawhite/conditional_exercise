@@ -239,18 +239,32 @@ function amountToCoins(amount, coins){
 console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
 
 //try to rework below...
-function amountToCoinsBbb(amount){
-    var coins = [25, 10, 5, 2, 1];
-    if(amount === 0){
-        return [];
-    } else {
-        if(amount >= coins[0]){
-            var left = (amount - coins[0]);
-            return [coins[0]].concat(amountToCoinsBbb(left));
-        } else {
-            coins.shift();
-            return amountToCoinsBbb(amount);
+// function amountToCoinsBbb(amount){
+//     var coins = [25, 10, 5, 2, 1];
+//     if(amount === 0){
+//         return [];
+//     } else {
+//         if(amount >= coins[0]){
+//             var left = (amount - coins[0]);
+//             return [coins[0]].concat(amountToCoinsBbb(left));
+//         } else {
+//             coins.shift();
+//             return amountToCoinsBbb(amount);
+//         }
+//     }
+// }
+// console.log(amountToCoinsBbb(46));
+
+
+//in class warm up 9-21-21
+//write a function logEvens that will accept a number parameter as an argument--that number will indicate
+// the amount of times to print out all even numbers up to the argument provided. 10 should show 2, 4, 6, 8, 10
+function logEvens(input){
+    for(var i = 1; i <= input; i++){
+        if(i % 2 === 0){
+            console.log(i);
         }
     }
 }
-console.log(amountToCoinsBbb(46));
+console.log(logEvens(10));
+console.log(logEvens(16));
