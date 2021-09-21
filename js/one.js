@@ -268,3 +268,30 @@ function logEvens(input){
 }
 console.log(logEvens(10));
 console.log(logEvens(16));
+
+//refactor continue will skip odd in this example
+function logEvensXxx(input){
+    for(var i = 1; i <= input; i++){
+        if(i % 2 !== 0){
+            continue;
+        } else {
+            console.log(i);
+        }
+    }
+}
+console.log(logEvensXxx(8));
+
+
+//from w3 schools
+//Write a JavaScript for loop that will iterate from 0 to user's input. For each iteration,
+// it will check if the current number is odd or even, and display a message to the screen.
+function oddOrEvenW (input){
+    for(var i = 0; i <= input; i++){
+        if (i % 2 === 0){
+            console.log(i + " is even");
+        } else {
+            console.log(i + " is odd");
+        }
+    }
+}
+console.log(oddOrEvenW(10));
