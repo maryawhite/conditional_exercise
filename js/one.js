@@ -313,27 +313,46 @@ console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
 // If you shoot all the zombies, return "You shot all X zombies." If you get eaten before killing all the zombies, and before running out of ammo, return "You shot X zombies before being eaten: overwhelmed." If you run out of ammo before shooting all the zombies, return "You shot X zombies before being eaten: ran out of ammo."
 //
 // (If you run out of ammo at the same time as the remaining zombies reach you, return "You shot X zombies before being eaten: overwhelmed.".)
-
-function zombie_shootout(zombies, range, ammo) {
-    let shotCount = 0
-    let zombieCount = zombies;
-    let message = "";
-    for(let i = 0; i <= range; i++){
-        shotCount++;
-        zombieCount -= 1;
-        range -= .5;
-        ammo -= 1;
-        if(range[i] <= 0 && zombies[i] >= 0){
-            message = "You shot " + shotCount + " zombies before being eaten: overwhelmed."
-        } else if(zombies[i] === 0){
-            message = "You shot all " + zombieCount + " zombies.";
-        } else if(ammo[i] <= 0){
-            message = "You shot " + shotCount + " zombies before being eaten: ran out of ammo."
-        }
-    }
-    return message;
-}
-console.log(zombie_shootout(3, 10, 10))
+//
+// function zombie_shootout(zombies, range, ammo) {
+//     let shotCount = 0
+//     let zombiesKilledCounter = 0;
+//     let message = "";
+//     while(true){
+//         if(zombies <= 0){
+//             return "You shot all " + zombiesKilledCounter + " zombies."
+//         }
+//         if(range <= 0){
+//             return "You shot " + shotCount + " zombies before being eaten: overwhelmed.";
+//         }
+//         if(ammo <= 0){
+//             return "You shot " + shotCount + " zombies before being eaten: ran out of ammo.";
+//         }
+//     }
+//     // for(let i = 0; i <= range; i++){
+//     //     if(range[i] > 0 && zombies[i] > 0 && ammo[i] > 0){
+//     //         shotCount++;
+//     //         zombiesKilledCounter++;
+//     //         zombies--;
+//     //         range -= .5;
+//     //         ammo -= 1;
+//     //         message = "You shot all " + zombies + " zombies."
+//     //         return message;
+//     //     }
+//     //     if (range[i] <= 0 && zombies[i] >= 0){
+//     //         return message = "You shot " + shotCount + " zombies before being eaten: overwhelmed.";
+//     //     }
+//     //     if(zombies[i] === 0){
+//     //         return message = "You shot all " + zombiesKilledCounter + " zombies.";
+//     //     }
+//     //     if(ammo[i] <= 0){
+//     //         return message = "You shot " + shotCount + " zombies before being eaten: ran out of ammo."
+//     //     }
+//     // }
+//     // return message;
+// }
+// console.log(zombie_shootout(3, 10, 10));
+// console.log(zombie_shootout(100, 8, 200));
 
 // function zombie_shootout(zombies, range, ammo) {
 //     let shotCount = 0
@@ -360,3 +379,48 @@ console.log(zombie_shootout(3, 10, 10))
 // }
 //
 // console.log(zombie_shootout(3, 10, 10)) //should return You shot all 3 zombies.
+
+//from EDABIT
+//Create a function that takes two numbers as arguments and return their sum.
+// function addition(a, b){
+//     return a + b;
+// }
+// //Create a function that takes a number as an argument, increments the number by +1 and returns the result.
+// function addition(num){
+//     return ++num;
+// }
+//
+// //Write a function that takes the base and height of a triangle and return its area. //The area of a triangle is: (base * height) / 2
+// function triArea(base, height){
+//     return (base * height) / 2;
+// }
+//
+// //Create a function that takes an array containing only numbers and return the first element.
+// function getFirstValue(arr){
+//     return arr[0];
+// }
+
+//Create a simple promise and pass the resolve function a string value of your choice. Use the setTimeout function as your asynchronous operation. Your setTimeout() function should not exceed 1000ms. Store the promise inside a variable named promise.
+//Promises are just objects that contain the outcome of asynchronous operations. So when do you use one? When you want to control the outcome of an asynchronous operation. All you have to do is wrap the asynchronous function with a promise constructor.
+// The promise constructor requires you to pass a function called the executor which takes two parameters, resolve and reject. Both are functions that you use to pass or reject a value that is usually the result of the async operation.
+// let promise = new Promise ((resolve, reject) => {
+//     setTimeout(( ) => {
+//         resolve("edabit")
+//     }, 1000)
+// })
+
+//Create a function which returns the number of true values there are in an array.
+function countTrue(arr){
+    let counter = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === true){
+            counter++;
+        }
+    }
+    return counter;
+}
+
+console.log(countTrue([true, false, true]));
+
+
+
