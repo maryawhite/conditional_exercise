@@ -410,17 +410,47 @@ console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
 // })
 
 //Create a function which returns the number of true values there are in an array.
-function countTrue(arr){
-    let counter = 0;
-    for(let i = 0; i < arr.length; i++){
-        if(arr[i] === true){
-            counter++;
+// function countTrue(arr){
+//     let counter = 0;
+//     for(let i = 0; i < arr.length; i++){
+//         if(arr[i] === true){
+//             counter++;
+//         }
+//     }
+//     return counter;
+// }
+//
+// console.log(countTrue([true, false, true]));
+
+//from codewars.com
+//If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+//
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. Additionally, if the number is negative, return 0 (for languages that do have them).
+//
+// Note: If the number is a multiple of both 3 and 5, only count it once.
+
+function solution(number){
+    let sum = 0;
+    for(let i = 0; i < number; i++){
+        if(i % 5 === 0 || i % 3 === 0){
+            console.log("I "+ i);
+            sum += i;
+            console.log("sum " + sum);
         }
     }
-    return counter;
+    console.log("sum " + sum);
+    return sum;
+}
+console.log(solution(6));
+
+//from codewars.com
+//Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+//
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+function maskify(cc){
+
 }
 
-console.log(countTrue([true, false, true]));
 
 
 
