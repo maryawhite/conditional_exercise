@@ -21,7 +21,7 @@ if (a === a.toUpperCase()) {
     console.log("alpha");
 }
 
-if (b === b.toUpperCase()){
+if (b === b.toUpperCase()) {
     console.log("beta");
 }
 
@@ -105,28 +105,28 @@ if (s % 3 === 0 && s % 5 === 0) {
 let longString = "JNtpAh7HQFG08rYh2Pb3HwOm83rbTomM6LnnjooGcoDeuWkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QLaEjcDGv7dVpFiMGHMaZZVDX34rZPy1EkZNZqlQU0jopLVvLyLESMh9A7gKhqoyMAbgZPpdb0CvniTJPpKYk24mLBeym8rBMW3XBmKk1xIOcJ"
 let hasCode = longString.indexOf("coDe") > -1;  //indexOf returns -1 if the string is not found
 
-if(hasCode){
+if (hasCode) {
     console.log("found");  //basically we're saying if hasCode is true, console.log found
 }
 
 let longStr = "JNtpAh7HQFG08rYh2Pb3HwOm83rbTomM6LnnjooG";
 let containsYh = longStr.indexOf("Yh2") > -1;
 
-if(containsYh){
+if (containsYh) {
     console.log("it's here");
 }
 
 let anotherStr = "nnjooGcoDeuWkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QL";
 let doesntCon = anotherStr.indexOf("zebra") > -1;
 
-if(doesntCon){
+if (doesntCon) {
     console.log("nope");  //this won't print anything, bc it's not true and we didn't give instructions on what to do it if's false
 }
 
 let oneMoreStr = "WkuPqXsRlwIDAQABAoGAeQkbPBR5n9y2QL";
 let doesntHv = oneMoreStr.indexOf("oxtails") < 1;  // less than 1 bc indexOf returns -1 if the string doesn't contain the thing
 
-if(doesntHv) {
+if (doesntHv) {
     console.log("your string doesn't contain this string");
 }
 
@@ -137,8 +137,8 @@ if(doesntHv) {
 function vowelsAndConsonants(s) {
     const vowels = "aeiou";
     var consonants = "";
-    for(var i = 0; i < s.length; i++){
-        if (vowels.includes(s[i])){
+    for (var i = 0; i < s.length; i++) {
+        if (vowels.includes(s[i])) {
             console.log(s[i]);       //it will console.log my vowels even though I only return consonants.
         } else {
             consonants += s[i] + '\n';
@@ -152,11 +152,11 @@ console.log(vowelsAndConsonants("maryandsarah")); //a a a a m r y s r h
 
 //from eloquent javascript
 // Define f to hold a function value
- const f = function(a) {
-   return (a + 2);
- };
+const f = function (a) {
+    return (a + 2);
+};
 
- console.log(f(2)); //4
+console.log(f(2)); //4
 console.log(f(6));  //8
 console.log(f("10"));  //102 bc it concatenates not adds
 console.log(f("tree")); //tree2 bc it concatenates
@@ -167,29 +167,31 @@ console.log(Math.min(2, 4) + 100);
 //from eloquent javascript
 //Write a function min that takes two arguments and returns the minimum.
 
-function min (x, y) {
+function min(x, y) {
     var minimumValue = Math.min(x, y);
     return minimumValue;
 }
+
 console.log(min(10, 2));     //2
 console.log(min(1000, 300)); //300
-console.log(min(1,-2));     //-2
+console.log(min(1, -2));     //-2
 
 
 //from github.com/Hey-Programmers/learn-javascript/tree/master/02_functions/exercises/A_functions_exercise
 //Write a function `endsWithT` that accepts a string as an argument. The function should return a
 //boolean indicating whether or not the string ends with the character 't'.
 
-function endsWithT(input){
-    if(typeof input !== "string"){
+function endsWithT(input) {
+    if (typeof input !== "string") {
         return false;
     }
-    if(input.charAt(input.length -1) === "t"){
+    if (input.charAt(input.length - 1) === "t") {
         return true;
     } else {
         return false;
     }
 }
+
 console.log("--ends with T--");
 console.log(endsWithT("smart"));   //true
 console.log(endsWithT("taco"));    //false
@@ -204,10 +206,11 @@ console.log(endsWithT(false));         //false
 //from HeyProgrammers
 //Write a function `average` that accepts three numbers as arguments.
 // The function should return the average of the three numbers.
-function average(a, b, c){
-    var result = (parseInt(a) + parseInt(b) + parseInt(c))/3;
+function average(a, b, c) {
+    var result = (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
     return result;
 }
+
 console.log("--average of 3 numbers--");
 console.log(average(3, 10, 8));     //7
 console.log(average(10, 5, 12));    //9
@@ -223,11 +226,11 @@ console.log(average("ten", "five", "twelve"));  //NaN
 // Sample function : amountToCoins(46, [25, 10, 5, 2, 1])
 // Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
 // Output : 25, 10, 10, 1
-function amountToCoins(amount, coins){
-    if(amount === 0){
+function amountToCoins(amount, coins) {
+    if (amount === 0) {
         return [];
     } else {
-        if(amount >= coins[0]){
+        if (amount >= coins[0]) {
             var left = (amount - coins[0]);
             return [coins[0]].concat(amountToCoins(left, coins));
         } else {
@@ -236,6 +239,7 @@ function amountToCoins(amount, coins){
         }
     }
 }
+
 console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
 
 //try to rework below...
@@ -259,39 +263,100 @@ console.log(amountToCoins(46, [25, 10, 5, 2, 1])); //[25, 10, 10, 1];
 //in class warm up 9-21-21
 //write a function logEvens that will accept a number parameter as an argument--that number will indicate
 // the amount of times to print out all even numbers up to the argument provided. 10 should show 2, 4, 6, 8, 10
-function logEvens(input){
-    for(var i = 1; i <= input; i++){
-        if(i % 2 === 0){
-            console.log(i);
-        }
-    }
-}
-console.log(logEvens(10));
-console.log(logEvens(16));
+// function logEvens(input){
+//     for(var i = 1; i <= input; i++){
+//         if(i % 2 === 0){
+//             console.log(i);
+//         }
+//     }
+// }
+// console.log(logEvens(10));
+// console.log(logEvens(16));
 
-//refactor continue will skip odd in this example
-function logEvensXxx(input){
-    for(var i = 1; i <= input; i++){
-        if(i % 2 !== 0){
-            continue;
-        } else {
-            console.log(i);
-        }
-    }
-}
-console.log(logEvensXxx(8));
+// //refactor continue will skip odd in this example
+// function logEvensXxx(input){
+//     for(var i = 1; i <= input; i++){
+//         if(i % 2 !== 0){
+//             continue;
+//         } else {
+//             console.log(i);
+//         }
+//     }
+// }
+// console.log(logEvensXxx(8));
 
 
 //from w3 schools
 //Write a JavaScript for loop that will iterate from 0 to user's input. For each iteration,
 // it will check if the current number is odd or even, and display a message to the screen.
-function oddOrEvenW (input){
-    for(var i = 0; i <= input; i++){
-        if (i % 2 === 0){
-            console.log(i + " is even");
-        } else {
-            console.log(i + " is odd");
+// function oddOrEvenW (input){
+//     for(var i = 0; i <= input; i++){
+//         if (i % 2 === 0){
+//             console.log(i + " is even");
+//         } else {
+//             console.log(i + " is odd");
+//         }
+//     }
+// }
+// console.log(oddOrEvenW(10));
+
+
+//from codewars.com
+//I'm afraid you're in a rather unfortunate situation. You've injured your leg, and are unable to walk, and a number of zombies are shuffling towards you, intent on eating your brains. Luckily, you're a crack shot, and have your trusty rifle to hand.
+//
+// The zombies start at range metres, and move at 0.5 metres per second. Each second, you first shoot one zombie, and then the remaining zombies shamble forwards another 0.5 metres.
+//
+// If any zombies manage to get to 0 metres, you get eaten. If you run out of ammo before shooting all the zombies, you'll also get eaten. To keep things simple, we can ignore any time spent reloading.
+//
+// Write a function that accepts the total number of zombies, a range in metres, and the number of bullets you have.
+//
+// If you shoot all the zombies, return "You shot all X zombies." If you get eaten before killing all the zombies, and before running out of ammo, return "You shot X zombies before being eaten: overwhelmed." If you run out of ammo before shooting all the zombies, return "You shot X zombies before being eaten: ran out of ammo."
+//
+// (If you run out of ammo at the same time as the remaining zombies reach you, return "You shot X zombies before being eaten: overwhelmed.".)
+
+function zombie_shootout(zombies, range, ammo) {
+    let shotCount = 0
+    let zombieCount = zombies;
+    let message = "";
+    for(let i = 0; i <= range; i++){
+        shotCount++;
+        zombieCount -= 1;
+        range -= .5;
+        ammo -= 1;
+        if(range[i] <= 0 && zombies[i] >= 0){
+            message = "You shot " + shotCount + " zombies before being eaten: overwhelmed."
+        } else if(zombies[i] === 0){
+            message = "You shot all " + zombieCount + " zombies.";
+        } else if(ammo[i] <= 0){
+            message = "You shot " + shotCount + " zombies before being eaten: ran out of ammo."
         }
     }
+    return message;
 }
-console.log(oddOrEvenW(10));
+console.log(zombie_shootout(3, 10, 10))
+
+// function zombie_shootout(zombies, range, ammo) {
+//     let shotCount = 0
+//     let zombieCount = zombies;
+//     let message = "";
+//     do {
+//         shotCount++;
+//         zombieCount -= 1;
+//         range -= .5;
+//         ammo -= 1;
+//     }
+//     while (ammo > 0 && range > 0);
+//     if (range === 0 && zombieCount > 0) {
+//         message = "You shot " + shotCount + " zombies before being eaten: overwhelmed."
+//     } else if (zombies === 0 && range > 0) {
+//         message = "You shot all " + zombieCount + " zombies.";
+//     } else if (ammo === 0) {
+//         message = "You shot " + shotCount + " zombies before being eaten: ran out of ammo."
+//     } else {
+//         message = "error";
+//     }
+//
+//     return message;
+// }
+//
+// console.log(zombie_shootout(3, 10, 10)) //should return You shot all 3 zombies.
