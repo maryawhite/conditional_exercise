@@ -447,10 +447,47 @@ console.log(solution(6));
 //Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
 //
 // Your task is to write a function maskify, which changes all but the last four characters into '#'.
-function maskify(cc){
+// function maskify(cc){
+//
+// }
 
+//codewars.com
+//You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+//
+// Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+//Not quite
+// function likes(names) {
+//     let nameList = "";
+//     for(let i = 0; i < names.length; i++) {
+//         if(i < names.length - 2){
+//             nameList = nameList + names[i] + ", ";
+//         } else if (i === names.length - 2) {
+//             nameList = nameList + names[i] + " and "; //this adds and bw each name
+//         } else nameList = nameList + names[i];
+//     }
+//     return nameList + " like this.";
+// }
+
+function likes(names){
+    if (names.length === 0){
+        return "no one likes this";
+    } else if (names.length === 1) {
+        return `${names[0]} likes this`;
+    } else if (names.length === 2) {
+        return `${names[0]} and ${names[1]} like this`;
+    } else if (names.length === 3) {
+        return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+    } else if (names.length > 3) {
+        return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+    }
 }
-
-
-
-
+//this passes all tests on codewars, but my console logs don't pass
+let names = ["Peter", "Paul", "John"];
+console.log(likes(names));
+let names2 = ["Mary", "Tim"];
+console.log(likes(names2));
+let name1 = "Charlie";
+console.log(likes(name1));
+let emptyName = [""];
+console.log(likes(emptyName));
