@@ -491,3 +491,49 @@ let name1 = "Charlie";
 console.log(likes(name1));
 let emptyName = [""];
 console.log(likes(emptyName));
+
+//   // Return a new array with the strings filtered out
+
+function filter_list(l) {
+
+}
+//Test.assertSimilar(filter_list([1,2,'a','b']),[1,2])
+
+//Digital root is the recursive sum of all the digits in a number.
+//
+// Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in
+// this way until a single-digit number is produced. The input will be a non-negative integer.
+
+//first sum all the numbers, then if it's more than 2 digits, add those numbers until there's only 1 digit
+
+//map
+//The map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
+//double each number in an array
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(item => item * 2);
+console.log(doubled); // [2, 4, 6, 8]
+
+//filter
+//The filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
+//The syntax for filter is similar to map, except the callback function should return true to keep the element, or false otherwise. In the callback, only the element is required.
+//filter out odd numbers
+const filterNumbers = [1, 2, 3, 4];
+const evens = filterNumbers.filter(item => item % 2 === 0);
+console.log(evens); // [2, 4]
+
+//reduce
+//The reduce() method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
