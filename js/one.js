@@ -448,7 +448,6 @@ console.log(solution(6));
 //
 // Your task is to write a function maskify, which changes all but the last four characters into '#'.
 // function maskify(cc){
-//
 // }
 
 //codewars.com
@@ -523,6 +522,36 @@ console.log(evens); // [2, 4]
 
 //reduce
 //The reduce() method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
+
+
+//codewars. define a function that takes one integer and returns true or false whether the integer is prime
+// a prime number is one that is divisible by 1 and by itself
+//assume the input will be an integer, account for negative numbers and 0
+
+function isPrime(number) {
+    if(number <= 1) {
+        return false;
+    } else if (number === 2) {
+        return true;
+    } else if (number > 1) {
+        for(let i = 2; i < number; i++) {
+            console.log("i " + i);
+            if(number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+//this code works, but is not optimized
+console.log("is prime: ");
+console.log("1: " + isPrime(1));
+console.log("2: " + isPrime(2));
+console.log("3: " + isPrime(3));
+console.log("4: " + isPrime(4));
+console.log("9: " + isPrime(9));
+console.log("75: " + isPrime(75));
+
 
 
 
