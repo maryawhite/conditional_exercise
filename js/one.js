@@ -533,9 +533,8 @@ function isPrime(number) {
         return false;
     } else if (number === 2) {
         return true;
-    } else if (number > 1) {
+    } else if (number > 2) {
         for(let i = 2; i < number; i++) {
-            console.log("i " + i);
             if(number % i === 0) {
                 return false;
             }
@@ -552,7 +551,36 @@ console.log("4: " + isPrime(4));
 console.log("9: " + isPrime(9));
 console.log("75: " + isPrime(75));
 
+//If a number n is not a prime, it can be factored into two factors a and b:
+//
+// n = a * b
+// Now a and b can't be both greater than the square root of n,
+// since then the product a * b would be greater than sqrt(n) * sqrt(n) = n.
+// So in any factorization of n, at least one of the factors must be smaller than the square root
+// of n, and if we can't find any factors less than or equal to the square root, n must be a prime.
 
+function isPrimeV2(number) {
+    if(number <= 1) {
+        return false;
+    } else if (number === 2) {
+        return true;
+    } else if (number > 2) {
+        for(let i = 2; i <= Math.sqrt(number); i++) {
+            if(number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+console.log("is prime V2: ");
+console.log("1: " + isPrimeV2(1));
+console.log("2: " + isPrimeV2(2));
+console.log("3: " + isPrimeV2(3));
+console.log("4: " + isPrimeV2(4));
+console.log("9: " + isPrimeV2(9));
+console.log("75: " + isPrimeV2(75));
 
 
 
