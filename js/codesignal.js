@@ -23,3 +23,30 @@ function openOrSenior(data) {
 //function openOrSenior(data) { return  data.map(x => { if(x[0] >= 55 && x[1] > 7){return "Senior";}else{return "Open";} }); }
 
 console.log(openOrSenior([[45, 12], [55, 21], [19, -2], [104, 20]]));
+
+
+//from codewars
+//Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+//
+// Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+//
+// If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+function order(words){
+    if(words.length === 0) {
+        return "";
+    }
+    let parsed = parseInt(words, 10);
+    console.log(parsed);
+
+}
+
+console.log(order("is2 Thi1s T4est 3a"));
+console.log("-------");
+
+
+//given a triangle of odd numbers, calculate the sum of th numbers in the nth row
+function rowSumOddNumbers(n) {
+    return n*n*n;
+}
+
