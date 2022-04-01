@@ -134,3 +134,125 @@ console.log(namesOnly([
     }
 ]));
 // ["Angelina Jolie", "Eric Jones", "Paris Hilton", "Kayne West", "Bob Ziroll"]
+
+//reverse a given string
+//convert it to an array (split). reverse it then join it again.
+function reverseString(input) {
+    var splitInput = input.split("").reverse().join("");
+    return splitInput;
+}
+
+console.log(reverseString("Mary"));
+
+//from codility
+//A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
+//
+// For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3. The number 20 has binary representation 10100 and contains one binary gap of length 1. The number 15 has binary representation 1111 and has no binary gaps. The number 32 has binary representation 100000 and has no binary gaps.
+//
+// Write a function:
+//
+// function solution(N);
+//
+// that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn't contain a binary gap.
+//
+// For example, given N = 1041 the function should return 5, because N has binary representation 10000010001 and so its longest binary gap is of length 5. Given N = 32 the function should return 0, because N has binary representation '100000' and thus no binary gaps.
+//
+// Write an efficient algorithm for the following assumptions:
+//
+// N is an integer within the range [1..2,147,483,647].
+
+//start by converting the input to a number using parseInt, then convert the number to binary, then figure out how to find the sections that contain 0s, maybe use indexOf to find the first one
+// //then slice it out.
+// //this only works for small numbers, need to refactor
+// function findBinaryGap(n) {
+//     var parseN = parseInt(n)
+//     var toBinary = parseN.toString(2);
+//     console.log("Binary Number: " + toBinary);
+//     //split it into an array so we can ues indexOf
+//     var myArray = toBinary.split("");
+//     console.log(myArray);
+//     var firstOne = myArray.indexOf("1");
+//     //if indexOf returns -1, it means it doesn't exist
+//     //now create a new array using slice to get rid of the first one
+//     if(firstOne > -1) {
+//         var newArraySliced = myArray.slice(firstOne + 1);
+//         console.log(newArraySliced);
+//         //now find the second 1
+//         var secondOne = newArraySliced.indexOf("1");
+//         //the index number of this new array (001, not the original array 1001) will correspond with the number of 0s.  001, the index of the first 1 is 0, the index of the 2nd 1 is 2
+//         //we need to store this value
+//         var gaps = [];
+//         if(secondOne > 0) {
+//             gaps.push(secondOne);
+//             //now get the largest gap
+//             return Math.max.apply(Math, gaps);
+//         } else {
+//             var anotherSlice = myArray.slice(secondOne + 1);
+//             console.log(anotherSlice);
+//             var thirdOne = anotherSlice.indexOf("1");
+//             gaps.push(thirdOne);
+//             return Math.max.apply(Math, gaps);
+//
+//         }
+//
+//
+//     } else {
+//         return 0;
+//     }
+// }
+
+//https://codingwithmanny.medium.com/how-to-solve-binary-gap-cda3c3e980b8
+
+function getGaps (BinaryArray, gaps) {
+    // finding the first one via its index
+    const firstOne = BinaryArray.indexOf("1");
+    if (firstOne > -1) {
+        // new array created taking a slice of original array
+        // from the index of the firstOne + 1 index
+        let NewBinaryArray = BinaryArray.slice(firstOne + 1);
+        console.log(NewBinaryArray);
+        // finding second one via its index in new array slice
+        const secondOne = NewBinaryArray.indexOf("1");
+        // accounting for no zeros
+        if (secondOne > 0) {
+            // adding 2 to our gaps array
+            gaps.push(secondOne);
+        }
+
+        // Pass array minus second one and gaps array
+        return getGaps(NewBinaryArray.slice(secondOne +1), gaps);
+    }
+
+    // if gaps array length is empty return 0
+    // otherwise return largest value in array
+    if(gaps.length > 0) {
+        return Math.max.apply(Math, gaps);
+    } else {
+        return 0;
+    }
+}
+// our function
+function findBinaryGap (n) {
+
+    // Tests if our value is an integer
+    // Tests if N is within range
+    if (n === parseInt(n, 10) && n >= 1 && n <= 2147483647) {
+        // Convert to binary and split into an array
+        var parseN = parseInt(n);
+        var binary = parseN.toString(2).split("");
+        console.log("binary number as Array: " + binary);
+
+        // calling our recursive function with initial empty gaps
+        return getGaps(binary, []);
+    }
+
+    // default if it doesn't meet the requirements
+    return 0;
+}
+
+console.log("find Binary Gap: ");
+console.log(findBinaryGap(9));  //2
+console.log(findBinaryGap(529));  //4
+console.log(findBinaryGap(100));  //2  //this one doesn't work correctly
+console.log(findBinaryGap(15));  //0
+console.log(findBinaryGap(51272));  //4
