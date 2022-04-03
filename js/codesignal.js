@@ -256,3 +256,27 @@ console.log(findBinaryGap(529));  //4
 console.log(findBinaryGap(100));  //2  //this one doesn't work correctly
 console.log(findBinaryGap(15));  //0
 console.log(findBinaryGap(51272));  //4
+
+function fibonacciGenerator(n) {
+    var output = [];
+
+    if(n === 1){
+        output = [0];
+    } else if (n === 2) {
+        output = [0, 1];
+    } else {
+        output = [0, 1];
+
+        for(var i = 2; i < n; i++) {
+            //the nth Fibonacci number is the summation of n-1 and n-2 term.
+            output.push(output[output.length - 2] + output[output.length - 1]);
+        }
+    }
+    return output;
+}
+
+console.log("fibonacci ");
+console.log(fibonacciGenerator(1)); //[0]
+console.log(fibonacciGenerator(2));  //[0, 1]
+console.log(fibonacciGenerator(3));  //[0, 1, 1]
+console.log(fibonacciGenerator(4));  //[0, 1, 1, 2]
