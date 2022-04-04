@@ -280,3 +280,149 @@ console.log(fibonacciGenerator(1)); //[0]
 console.log(fibonacciGenerator(2));  //[0, 1]
 console.log(fibonacciGenerator(3));  //[0, 1, 1]
 console.log(fibonacciGenerator(4));  //[0, 1, 1, 2]
+
+//who's paying for lunch
+//give an array of names, pick a random person to buy lunch
+function whosPaying(names) {
+    var winner = names[Math.floor(Math.random()*names.length)];
+    return winner + " is going to buy lunch today";
+}
+
+console.log("who's paying ");
+console.log(whosPaying(["Mary", "Sarah", "Tim", "Charlie"]));
+
+function capitalizeFirstLetter(input) {
+    //given an input, capitalize the first letter of the name
+    var firstLetter = input.slice(0, 1);
+    var remaining = input.slice(1);
+    return firstLetter.toUpperCase() + remaining;
+}
+
+console.log(capitalizeFirstLetter("mary"));
+console.log(capitalizeFirstLetter("christmas"));
+console.log(capitalizeFirstLetter("hilton"));
+console.log("-----------------------------------");
+
+//write a function that accepts a list of strings, return the longest string. use functional programming (without using a loop).
+
+function findLongestString(input) {
+    //find the length of each one, and return a new array with the index and length (map creates a new array)
+    const lengths = input.map(function(string, index){
+        //we'll return a javascript object
+        return {
+            index: index,
+            length: string.length
+        }
+    })
+    //since the challenge asks us to use functional programming, we'll use reduce to return the output
+    const i = lengths.reduce((accum, obj) => obj.length > accum ? obj.index : accum, -1)
+    return input[i];
+}
+
+console.log("find longest string ");
+console.log(findLongestString(["wxyz", "ab", "abc", "abcdefg"]));
+
+//write a function that accepts a list of strings, return the lontest string use imperative programming (use a loop)
+function findLongestStringImperative(input) {
+    //create a temporary var called longest
+    let longest = "";  //use let because we are going to reassign each time. (var would be available outside the block, const can't be reassigned)
+    //compare the current longest.length to the current iteration of the list at i
+    for(let i = 0; i < input.length; i++) {
+        if(input[i].length > longest.length) {
+            longest = input[i]
+        }
+    }
+    return longest;
+}
+//this is O of n, it goes through the entire length of the input, even if it's 1 million
+
+console.log("find longest using a loop ");
+console.log(findLongestStringImperative(["wxyz", "ab", "abc", "abcdefg"]));
+
+//write a function to determine if a string is a palindrome, functionally
+function isPalindrome(str) {
+    const lettersOnly = str.toLowerCase().split(/[^a-z]+/).join("").split("")
+    //this regex separates it into words and gets rid of punctuation and whitespace, then joins it back together, then split it again
+    console.log("Letters Only: " + lettersOnly);
+    //reverse modifies the string in place. to get around that, use a spread operator to get a copy
+    const reversed = [...lettersOnly].reverse();  //[...]this is called a spread operator
+    return lettersOnly.join("") === reversed.join("");
+}
+
+console.log("palindrome ");
+console.log(isPalindrome("tacocat"));   //should return true
+console.log(isPalindrome("racecar"));   //should return true
+console.log(isPalindrome("taco"));   //should return false
+
+//write a generator using a higher order function and closure
+//what is a generator
+//what is a higher order function--A “higher-order function” is a function that accepts functions as parameters and/or returns a function.
+function infinite() {
+    let index = 0;
+    return function() {
+        return index++;
+    }
+}
+
+console.log("generator ");
+console.log(infinite());
+
+/*
+write a generator using a higher order function that will generate integers starting at a "start" and going up to an "end" value. Once the
+"end" value has been generated, the generator will return undefined
+*/
+
+function from(start) {
+    let i = start;
+    return function() {
+        return i++;
+    }
+}
+
+function to(end) {
+    let i = 0;
+    return function() {
+        if(i > end) {
+            return undefined;
+        }
+        return i++;
+    }
+}
+//not sure about this one
+function range(start, end) {
+    const gFrom = from(start)
+    const gTo = to(end)
+    let i = gFrom()
+    return function(){
+        let n = i++
+        if(n > end) return undefined
+        return n
+    }
+}
+
+
+//this is the non-functional way to do it
+function upto(from, to) {
+    const myArray = [];
+    for(let i = from; i < to; i++) {
+        myArray.push(i)
+    }
+    return myArray;
+}
+
+console.log("upto ");
+console.log(upto(5, 7));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
