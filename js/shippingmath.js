@@ -46,3 +46,11 @@ calculateDensity(150, 107136);  //2.4193548387096775 lbs/ft^3
 
 //how would we round to 2 decimal places?
 //maybe use toFixed() method
+
+//bom
+console.log("paragraph inner Width: " + window.innerWidth);
+console.log("protocol: " + window.location.protocol);
+
+//dom
+let myParagraph = document.getElementById("domquiz");
+myParagraph.style.color = "blue";
