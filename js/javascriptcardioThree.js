@@ -5,10 +5,10 @@
 //ex. addAll(2,5,6,7) ---> 20
 
 //using the arguments object and a for loop
-function addAll(){
+function addAll() {
     var args = Array.prototype.slice.call(arguments);
     var total = 0;
-    for(let i = 0; i < args.length; i++){
+    for (let i = 0; i < args.length; i++) {
         total += args[i];
     }
     return total;
@@ -20,11 +20,12 @@ console.log("-----------------");
 //solution 2 with spread operator ...rest, and forEach
 function addAllSpread(...numbers) {
     let total = 0;
-    numbers.forEach(function(num){
+    numbers.forEach(function (num) {
         total += num;
     });
     return total;
 }
+
 console.log(addAllSpread(2, 5, 6, 7));  //20
 console.log("-----------------");
 
@@ -34,6 +35,7 @@ console.log("-----------------");
 function addAllReduce(...numbers) {
     return numbers.reduce((acc, cur) => acc + cur);
 }
+
 console.log(addAllReduce(2, 5, 6, 7));  //20
 console.log("-----------------");
 
@@ -42,19 +44,21 @@ console.log("-----------------");
 // a prime number is a number greater than one whose only factors are 1 and itself
 //ex sumAllPrimes(10) --> 17
 
-function sumAllPrimes(num){
+function sumAllPrimes(num) {
     let total = 0;
+
     //helper function
     function checkForPrime(i) {
-        for(let j = 2; j < i; j++) {
-            if(i % j === 0) {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
                 return false;
             }
         }
         return true;
     }
-    for(let i = 2; i <= num; i++) {
-        if(checkForPrime(i)){
+
+    for (let i = 2; i <= num; i++) {
+        if (checkForPrime(i)) {
             total += i;
         }
     }
@@ -75,13 +79,14 @@ function seekAndDestroy(arr) {
     const args = Array.from(arguments);
 
     //helper function return true if it's not in the array
-    function filterArr(arr){
+    function filterArr(arr) {
         return args.indexOf(arr) === -1;
     }
+
     return arr.filter(filterArr);
 }
 
-console.log(seekAndDestroy([2,3,4,6,6, 'hello'], 2, 6));  //should return [3,4,'hello']
+console.log(seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6));  //should return [3,4,'hello']
 console.log("-----------------");
 
 //solution 2 using ...rest, filter, and includes
@@ -102,8 +107,8 @@ function sortByHeight(a) {
     const arr1 = [];
     const arr2 = [];
 
-    a.forEach(function(val, index){
-        if(val === -1){
+    a.forEach(function (val, index) {
+        if (val === -1) {
             arr1.push(index);
         } else {
             arr2.push(val)
@@ -111,7 +116,7 @@ function sortByHeight(a) {
     });
     const sortArr = arr2.sort((a, b) => a - b);
 
-    arr1.forEach(function (val, index){
+    arr1.forEach(function (val, index) {
         return sortArr.splice(arr1[index], 0, -1)
     });
 
@@ -134,11 +139,11 @@ function missingLetters(str) {
 
     //split the string into an array
     str.split("").map((char, i) => {
-          if(str.charCodeAt(i) == compare) {
-              ++compare;
-          } else{
-              missing = String.fromCharCode(compare);
-          }
+        if (str.charCodeAt(i) == compare) {
+            ++compare;
+        } else {
+            missing = String.fromCharCode(compare);
+        }
     });
     return missing;
 }
@@ -164,6 +169,47 @@ function evenOddSums(arr) {
 
 console.log(evenOddSums([50, 60, 60, 45, 71]));
 
+
+function fizzBuzz() {
+    for (let i = 1; i <= 50; i++) {
+        if (i % 15 === 0) {
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        } else {
+            console.log(i);
+        }
+    }
+}
+
+fizzBuzz();
+
+//check prime
+//a prime number is a number greater than 1 divisible by 1 and itself
+//in the for loop we start i at 2 because we know the number needs to be greater than 1
+//we can use i < num/2 because mathematically we can stop checking once we get to the halfway point
+function checkPrime(num) {
+    if(num <= 1) {
+        return false;
+    }
+
+    for (let i = 2; i < num / 2; i++) {
+        if(num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log("check prime: ")
+console.log(checkPrime(2));  ///true
+console.log(checkPrime(5));  //true
+console.log(checkPrime(7));  //true
+console.log(checkPrime(8));  //false
+console.log(checkPrime(1));  //false
+console.log(checkPrime(-1));  //false
 
 
 
